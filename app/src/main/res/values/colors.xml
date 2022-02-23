@@ -8,8 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="teal_primary">#237D8C</color>
+    <color name="teal_primary">#2F96B2</color>
+    <color name="divider_color">#E6E5F2</color>
+    <color name="gender_tab_text_color">#2A245F</color>
     <color name="teal_light">#5bacbc</color>
+    <color name="bermuda">#86CCD8</color>
     <color name="teal_dark">#00505f</color>
     <color name="facebook_blue">#1864D6</color>
     <color name="text_color_common">#222222</color>

@@ -13,8 +13,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
-        <item name="fontFamily">@font/san_semi_condensed_family</item>
-        <item name="android:fontFamily">@font/san_semi_condensed_family</item>
+        <item name="fontFamily">@font/chivo_family</item>
+        <item name="android:fontFamily">@font/chivo_family</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">true</item>
 

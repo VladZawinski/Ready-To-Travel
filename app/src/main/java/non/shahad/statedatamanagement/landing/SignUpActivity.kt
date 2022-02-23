@@ -13,6 +13,9 @@ class SignUpActivity(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(viewBinding.toolbar)
+
+        viewBinding.genderView.setOnAction {
+
+        }
     }
 }

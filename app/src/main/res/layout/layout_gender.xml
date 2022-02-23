@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gender_tab_background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/femaleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:background="@drawable/gender_selected_shape"
+            android:textColor="@color/gender_tab_text_color"
+            android:paddingTop="10dp"
+            android:paddingEnd="24dp"
+            android:textSize="14sp"
+            android:paddingBottom="10dp"
+            android:text="Female" />
+
+        <TextView
+            android:id="@+id/maleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gender_tab_text_color"
+            android:background="@drawable/normal_shape"
+            android:textSize="14sp"
+            android:paddingStart="24dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="10dp"
+            android:text="Male" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

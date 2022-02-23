@@ -13,11 +13,17 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
-        <item name="fontFamily">@font/san_semi_condensed_family</item>
-        <item name="android:fontFamily">@font/san_semi_condensed_family</item>
+        <item name="fontFamily">@font/chivo_family</item>
+        <item name="android:fontFamily">@font/chivo_family</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">true</item>
 
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">@color/divider_color</item>
+        <item name="colorControlHighlight">@color/divider_color</item>
+
         <!-- Customize your theme here. -->
+
+
     </style>
 </resources>

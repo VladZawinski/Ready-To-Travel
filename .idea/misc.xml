@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/gender_selected_shape.xml" value="0.5835897435897436" />
+        <entry key="app/src/main/res/drawable/gender_tab_background.xml" value="0.5835897435897436" />
+        <entry key="app/src/main/res/drawable/normal_shape.xml" value="0.5835897435897436" />
+        <entry key="app/src/main/res/font/chivo_family.xml" value="0.5974358974358974" />
         <entry key="app/src/main/res/font/san_semi_condensed_family.xml" value="0.6117948717948718" />
         <entry key="app/src/main/res/layout/activity_landing.xml" value="0.5770833333333333" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.5911458333333334" />
         <entry key="app/src/main/res/layout/layout_auth_actions.xml" value="0.5911458333333334" />
+        <entry key="app/src/main/res/layout/layout_gender.xml" value="0.5765625" />
       </map>
     </option>
   </component>
