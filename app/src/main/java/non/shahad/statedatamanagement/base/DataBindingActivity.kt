@@ -1,5 +1,6 @@
 package non.shahad.statedatamanagement.base
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -18,7 +19,7 @@ abstract class DataBindingActivity<viewBinding: ViewDataBinding>: AppCompatActiv
     lateinit var viewBinding: viewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        makeStatusBarWhite()
+        setStatusBar()
         super.onCreate(savedInstanceState)
         viewBinding = DataBindingUtil.setContentView(this,layoutRes)
     }
@@ -34,6 +35,16 @@ abstract class DataBindingActivity<viewBinding: ViewDataBinding>: AppCompatActiv
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.statusBarColor = ContextCompat.getColor(this,color)
+        }
+    }
+
+    private fun setStatusBar() {
+        window.apply {
+            clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            statusBarColor = Color.TRANSPARENT
         }
     }
 
