@@ -21,6 +21,7 @@ class GenderView @JvmOverloads constructor(
         val normalShape = ContextCompat.getDrawable(context,R.drawable.normal_shape)
         val selectedShape = ContextCompat.getDrawable(context, R.drawable.gender_selected_shape)
 
+        val capsuleView = view.findViewById<TextView>(R.id.capsuleView)
         val maleView = view.findViewById<TextView>(R.id.maleView)
         val femaleView = view.findViewById<TextView>(R.id.femaleView)
 
@@ -28,8 +29,8 @@ class GenderView @JvmOverloads constructor(
             if (selectedItemId != Gender.MALE){
                 selectedItemId = Gender.MALE
                 onChange(Gender.MALE)
-                maleView.background = selectedShape
-                femaleView.background = normalShape
+                capsuleView.animate().x(capsuleView.width.toFloat()).setDuration(100)
+
             }
         }
 
@@ -37,8 +38,8 @@ class GenderView @JvmOverloads constructor(
             if (selectedItemId != Gender.FEMALE){
                 selectedItemId = Gender.FEMALE
                 onChange(Gender.FEMALE)
-                maleView.background = normalShape
-                femaleView.background = selectedShape
+                capsuleView.animate().x(0f).setDuration(100)
+
             }
         }
     }
