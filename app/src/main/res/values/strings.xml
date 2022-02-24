@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">State Data Management</string>
+    <string name="app_name">Ready To Travel</string>
     <string name="landing_title">Welcome to\nReady to Travel</string>
     <string name="landing_description">Sign up with Facebook for the most\nfulfilling trip planning experience with us!</string>
     <string name="fb_login">Log in with Facebook</string>
