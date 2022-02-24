@@ -1,5 +1,6 @@
 ext {
     github = [
-        timber: 'com.jakewharton.timber:timber:5.0.1'
+        timber: 'com.jakewharton.timber:timber:5.0.1',
+        trapizium: 'com.github.abdulrehmank7:trapezium-view:1.0'
     ]
 }
