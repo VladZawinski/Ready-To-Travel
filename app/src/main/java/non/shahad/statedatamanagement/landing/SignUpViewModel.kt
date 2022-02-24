@@ -1,20 +1,21 @@
 package non.shahad.statedatamanagement.landing
 
+import android.util.Patterns
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 class SignUpViewModel constructor(
 
 ): ViewModel() {
 
-    private val _uiState = MutableStateFlow<SignUpState>(initialState())
-    val uiState: StateFlow<SignUpState> = _uiState
+    private val state = MutableStateFlow<SignUpState>(initialState())
+    val uiState = state.asStateFlow()
 
-    private val _event: MutableSharedFlow<SignUpSideEffect> = MutableSharedFlow()
-    val event = _event.asSharedFlow()
+    private val _event = Channel<SignUpSideEffect>(Channel.CONFLATED)
+    val event = _event.receiveAsFlow()
 
     private fun initialState() = SignUpState(
         credentials = mapOf(
@@ -29,14 +30,43 @@ class SignUpViewModel constructor(
         )
     )
 
+    /**
+     * Compilation error on map.forEach { t, u ->  }
+     * Strange, isn't it?
+     */
+    fun validate() {
+        viewModelScope.launch {
+            publishEvent(SignUpSideEffect.Validated)
+            val emptyEntities = state.value.credentials.filterValues { it.isEmpty() }
+
+            if (emptyEntities.isEmpty()){
+                hitToAPI()
+                publishEvent(SignUpSideEffect.Validated)
+            } else {
+                val emptyIds = emptyEntities.keys.toList()
+                publishEvent(SignUpSideEffect.ShowValidationError(emptyIds))
+            }
+        }
+    }
+
+    private fun checkEmailValidation(email: String){
+
+    }
+
+    private fun hitToAPI(){}
+
     fun persistCredentials(id: Int, value: String) {
-        val credential = _uiState.value.credentials.toMutableMap()
+        val credential = state.value.credentials.toMutableMap()
         credential[id] = value
 
-        _uiState.value = _uiState.value.copy(
+        state.value = state.value.copy(
             credentials = credential
         )
     }
+
+    fun String.isValidEmail() = Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+    private suspend fun publishEvent(event: SignUpSideEffect) = _event.send(event)
 
 }
 
@@ -52,12 +82,12 @@ object CredentialIds {
 }
 
 data class SignUpState(
-    val isSigningUp: Boolean = false,
     val credentials: Map<Int,String>
 )
 
 sealed class SignUpSideEffect {
     object isValidating: SignUpSideEffect()
     object Validated: SignUpSideEffect()
+    data class ShowToast(val message: String): SignUpSideEffect()
     data class ShowValidationError(val emptyEdIds: List<Int>): SignUpSideEffect()
 }
